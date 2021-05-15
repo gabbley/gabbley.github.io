@@ -14313,11 +14313,11 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># displays first 5 rows of 2014 survey data in a DataFrame</span>
-<span class="n">survey_2014</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">survey_2014</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14333,7 +14333,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
 
 
 
@@ -14476,66 +14476,6 @@ a.anchor-link {
       <td>No</td>
       <td>NaN</td>
     </tr>
-    <tr>
-      <th>3</th>
-      <td>2014-08-27 11:29:46</td>
-      <td>31</td>
-      <td>Male</td>
-      <td>United Kingdom</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Often</td>
-      <td>26-100</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Somewhat difficult</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Some of them</td>
-      <td>No</td>
-      <td>Maybe</td>
-      <td>Maybe</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2014-08-27 11:30:22</td>
-      <td>31</td>
-      <td>Male</td>
-      <td>United States</td>
-      <td>TX</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Never</td>
-      <td>100-500</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Don't know</td>
-      <td>Don't know</td>
-      <td>Don't know</td>
-      <td>Don't know</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Some of them</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Don't know</td>
-      <td>No</td>
-      <td>NaN</td>
-    </tr>
   </tbody>
 </table>
 </div>
@@ -14599,14 +14539,14 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import 2016 survey using pandas</span>
 <span class="n">survey_2016</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;mental-heath-in-tech-2016_20161114.csv&#39;</span><span class="p">)</span>
 
 <span class="c1"># display first 5 rows of the 2016 data</span>
-<span class="n">survey_2016</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">survey_2016</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14622,7 +14562,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
 
 
 
@@ -14908,138 +14848,6 @@ a.anchor-link {
       <td>NaN</td>
       <td>Back-end Developer</td>
       <td>Always</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>1</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>Yes, I know several</td>
-      <td>Sometimes, if it comes up</td>
-      <td>I'm not sure</td>
-      <td>Sometimes, if it comes up</td>
-      <td>I'm not sure</td>
-      <td>Yes</td>
-      <td>1-25%</td>
-      <td>1</td>
-      <td>Some did</td>
-      <td>N/A (not currently aware)</td>
-      <td>None did</td>
-      <td>None did</td>
-      <td>I don't know</td>
-      <td>Some of them</td>
-      <td>Some of them</td>
-      <td>Some of my previous employers</td>
-      <td>Some of my previous employers</td>
-      <td>I don't know</td>
-      <td>Some of them</td>
-      <td>Yes</td>
-      <td>old back injury, doesn't cause me many issues ...</td>
-      <td>Maybe</td>
-      <td>would not if I was not 100% sure that the disc...</td>
-      <td>Yes, I think it would</td>
-      <td>Maybe</td>
-      <td>Neutral</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Anxiety Disorder (Generalized, Social, Phobia,...</td>
-      <td>NaN</td>
-      <td>Yes</td>
-      <td>Anxiety Disorder (Generalized, Social, Phobia,...</td>
-      <td>1</td>
-      <td>Sometimes</td>
-      <td>Sometimes</td>
-      <td>43</td>
-      <td>male</td>
-      <td>United Kingdom</td>
-      <td>NaN</td>
-      <td>United Kingdom</td>
-      <td>NaN</td>
-      <td>Supervisor/Team Lead</td>
-      <td>Sometimes</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0</td>
-      <td>6-25</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Neither easy nor difficult</td>
-      <td>Yes</td>
-      <td>Maybe</td>
-      <td>Maybe</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1</td>
-      <td>I don't know</td>
-      <td>N/A (not currently aware)</td>
-      <td>Some did</td>
-      <td>None did</td>
-      <td>I don't know</td>
-      <td>Some of them</td>
-      <td>Some of them</td>
-      <td>No, at none of my previous employers</td>
-      <td>Some of my previous employers</td>
-      <td>Some did</td>
-      <td>Some of them</td>
-      <td>Maybe</td>
-      <td>Depending on the interview stage and whether I...</td>
-      <td>No</td>
-      <td>I don't know</td>
-      <td>Yes, I think it would</td>
-      <td>Maybe</td>
-      <td>Somewhat open</td>
-      <td>Yes, I experienced</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Anxiety Disorder (Generalized, Social, Phobia,...</td>
-      <td>NaN</td>
-      <td>Yes</td>
-      <td>Anxiety Disorder (Generalized, Social, Phobia,...</td>
-      <td>1</td>
-      <td>Sometimes</td>
-      <td>Sometimes</td>
-      <td>43</td>
-      <td>Female</td>
-      <td>United States of America</td>
-      <td>Illinois</td>
-      <td>United States of America</td>
-      <td>Illinois</td>
-      <td>Executive Leadership|Supervisor/Team Lead|Dev ...</td>
-      <td>Sometimes</td>
     </tr>
   </tbody>
 </table>
@@ -15716,15 +15524,20 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">employee_ind</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;family_history&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Deciding which columns we&#39;d like to keep in our DataFrame</span>
+<span class="c1"># Each list indicates the relevance of the columns; this is</span>
+<span class="c1"># purely for clarity reasons, we concatenate the lists as cols</span>
+<span class="n">employee_ind</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;family_history&#39;</span><span class="p">]</span>
 <span class="n">workplace_ind</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;benefits&#39;</span><span class="p">,</span> <span class="s1">&#39;care_options&#39;</span><span class="p">,</span> <span class="s1">&#39;wellness_program&#39;</span><span class="p">,</span> <span class="s1">&#39;seek_help&#39;</span><span class="p">,</span>
                  <span class="s1">&#39;anonymity&#39;</span><span class="p">,</span> <span class="s1">&#39;leave&#39;</span><span class="p">,</span> <span class="s1">&#39;mental_health_consequence&#39;</span><span class="p">,</span> <span class="s1">&#39;phys_health_consequence&#39;</span><span class="p">,</span>
                 <span class="s1">&#39;coworkers&#39;</span><span class="p">,</span> <span class="s1">&#39;supervisor&#39;</span><span class="p">,</span> <span class="s1">&#39;mental_vs_physical&#39;</span><span class="p">,</span> <span class="s1">&#39;obs_consequence&#39;</span><span class="p">,</span> 
                 <span class="s1">&#39;no_employees&#39;</span><span class="p">]</span>
 <span class="n">target</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;work_interfere&#39;</span><span class="p">,</span> <span class="s1">&#39;work_interfere_withtreat&#39;</span><span class="p">,</span> <span class="s1">&#39;work_interfere_notreat&#39;</span><span class="p">]</span>
 
+<span class="c1"># concatenated list of all cols to keep</span>
 <span class="n">cols</span> <span class="o">=</span> <span class="n">employee_ind</span> <span class="o">+</span> <span class="n">workplace_ind</span> <span class="o">+</span> <span class="n">target</span>
 
+<span class="c1"># retrieves subset of DataFrame to be used for the remainder of the project</span>
 <span class="n">survey</span> <span class="o">=</span> <span class="n">survey</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
 </pre></div>
 
@@ -15736,19 +15549,36 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[36]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Tidying up gender - a lot of manual entry bc the survey made it a free response</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Tidying up gender - Since this question was a free-response question, we have</span>
+<span class="c1"># to clean up all of the options that intended to say Male or Female. I chose to handle</span>
+<span class="c1"># this column by manually sending in a list of values to DataFrame.replace, including</span>
+<span class="c1"># misspellings and handling different cases by converting all responses to lowercase.</span>
 <span class="n">survey</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">survey</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<span class="n">survey</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;male&#39;</span><span class="p">,</span> <span class="s1">&#39;man&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;cis male&#39;</span><span class="p">,</span> <span class="s1">&#39;male leaning androgynous&#39;</span><span class="p">,</span> <span class="s1">&#39;cisdude&#39;</span><span class="p">,</span> <span class="s1">&#39;dude&#39;</span><span class="p">],</span> 
+
+<span class="c1"># Replacing values for &#39;Male&#39;</span>
+<span class="n">survey</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;male&#39;</span><span class="p">,</span> <span class="s1">&#39;man&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;cis male&#39;</span><span class="p">,</span> 
+                                     <span class="s1">&#39;cisdude&#39;</span><span class="p">,</span> <span class="s1">&#39;dude&#39;</span><span class="p">,</span> <span class="s1">&#39;malr&#39;</span><span class="p">,</span> <span class="s1">&#39;dude&#39;</span><span class="p">,</span>
+                                     <span class="s1">&#39;male-ish&#39;</span><span class="p">,</span> <span class="s1">&#39;maile&#39;</span><span class="p">,</span> <span class="s1">&#39;mail&#39;</span><span class="p">],</span> 
                          <span class="n">value</span><span class="o">=</span><span class="s1">&#39;Male&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">survey</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;female&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;woman&#39;</span><span class="p">,</span> <span class="s1">&#39;queer/she/they&#39;</span><span class="p">,</span> <span class="s1">&#39;trans woman&#39;</span><span class="p">],</span> 
+
+<span class="c1"># Replace values for &#39;Female&#39;</span>
+<span class="n">survey</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;female&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;woman&#39;</span><span class="p">,</span> <span class="s1">&#39;queer/she/they&#39;</span><span class="p">,</span> <span class="s1">&#39;trans woman&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;femail&#39;</span><span class="p">,</span> <span class="s1">&#39;cis-female/femme&#39;</span><span class="p">,</span> <span class="s1">&#39;femake&#39;</span><span class="p">,</span> <span class="s1">&#39;female (trans)&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;female (cis)&#39;</span><span class="p">,</span> <span class="s1">&#39;cis female&#39;</span><span class="p">],</span> 
                          <span class="n">value</span><span class="o">=</span><span class="s1">&#39;Female&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Replacing all other values and classifying under &#39;Nonbinary&#39;, i.e., not under the binary of M/F.</span>
 <span class="n">survey</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;non-binary&#39;</span><span class="p">,</span> <span class="s1">&#39;nonbinary&#39;</span><span class="p">,</span> <span class="s1">&#39;unicorn&#39;</span><span class="p">,</span> <span class="s1">&#39;enby&#39;</span><span class="p">,</span> <span class="s1">&#39;genderqueer&#39;</span><span class="p">,</span> <span class="s1">&#39;agender&#39;</span><span class="p">,</span> 
-                                     <span class="s1">&#39;neuter&#39;</span><span class="p">,</span> <span class="s1">&#39;queer&#39;</span><span class="p">,</span> <span class="s1">&#39;bigender&#39;</span><span class="p">,</span> <span class="s1">&#39;androgynous&#39;</span><span class="p">,</span> <span class="s1">&#39;nb masculine&#39;</span><span class="p">,</span> <span class="s1">&#39;androgyne&#39;</span><span class="p">],</span> 
+                                     <span class="s1">&#39;neuter&#39;</span><span class="p">,</span> <span class="s1">&#39;queer&#39;</span><span class="p">,</span> <span class="s1">&#39;bigender&#39;</span><span class="p">,</span> <span class="s1">&#39;androgynous&#39;</span><span class="p">,</span> <span class="s1">&#39;nb masculine&#39;</span><span class="p">,</span> <span class="s1">&#39;androgyne&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;ostensibly male&#39;</span><span class="p">,</span> <span class="s1">&#39;Guy (-ish) ^_^&#39;</span><span class="p">,</span> <span class="s1">&#39;male leaning androgynous&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;ostensibly male, unsure what that really means&#39;</span><span class="p">],</span> 
                          <span class="n">value</span><span class="o">=</span><span class="s1">&#39;Nonbinary&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
+<span class="c1"># Certain values were not classified and dropped, such as nonsensical answers (&#39;Nah&#39;, &#39;p&#39;, &#39;A little about you&#39;)</span>
+<span class="c1"># NaN values were also dropped. The below code updates the survey DataFrame as described.</span>
 <span class="n">survey</span> <span class="o">=</span> <span class="n">survey</span><span class="p">[</span><span class="n">survey</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;Male&#39;</span><span class="p">,</span> <span class="s1">&#39;Female&#39;</span><span class="p">,</span> <span class="s1">&#39;Nonbinary&#39;</span><span class="p">])]</span>
 </pre></div>
 
@@ -15760,11 +15590,13 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[38]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">survey</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Not applicable to me&#39;</span><span class="p">,</span> <span class="s1">&#39;Don</span><span class="se">\&#39;</span><span class="s1">t know&#39;</span><span class="p">,</span> <span class="s1">&#39;I don</span><span class="se">\&#39;</span><span class="s1">t know&#39;</span><span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#survey.replace(to_replace=[&#39;Not applicable to me&#39;, &#39;Don\&#39;t know&#39;, &#39;I don\&#39;t know&#39;], value=np.nan, inplace=True)</span>
 
+<span class="c1"># There are a handful of invalid ages, such as values well above 100 and negative values.</span>
+<span class="c1"># Here, we decide to omit minors from the survey and ages greater than 80.</span>
 <span class="n">survey</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">survey</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">survey</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">])</span>
 <span class="n">survey</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">survey</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">survey</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">])</span>
 </pre></div>
@@ -15774,13 +15606,25 @@ a.anchor-link {
 </div>
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><p><b>Handling work_interfere differences between 2014 and 2016</b></p>
+One of the changes between the 2014 and 2016 surveys that presents a problem for my specific inquiry is that the 2016 survey asks for level of work interference due to mental health with or without effective treatment. The 2014 survey asks for work interference without the added conditions.</p>
+<p>The code below consolidates the two columns from 2016 into the one work_interfere column based on the following conditions:</p>
+<li>If one of the two columns is a NaN value, the non-NaN value is used.</li>
+<li>If both are NaN, no action is taken, since the work_interfere column will either have a value or NaN value in the cell by default</li>
+<li>If both are not NaN values, we use random.choice() to randomly choose between the two options.</li><p>Afterwards, we drop the 2016 columns (we don't need them anymore!) All non-NaN values should be under the work_interfere column now.</p>
+
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">survey</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Iterate through the survey DataFrame to handle work_interfere as described above</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">survey</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
     <span class="n">wi_t</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;work_interfere_withtreat&#39;</span><span class="p">]</span>
     <span class="n">wi_nt</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;work_interfere_notreat&#39;</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">wi_t</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="ow">and</span> <span class="n">wi_nt</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">:</span>
@@ -15790,6 +15634,7 @@ a.anchor-link {
     <span class="k">elif</span> <span class="n">wi_t</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="ow">and</span> <span class="n">wi_nt</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">:</span>
         <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;work_interfere&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="n">wi_t</span><span class="p">,</span> <span class="n">wi_nt</span><span class="p">])</span>
 
+<span class="c1"># drops 2016 survey work_interfere columns</span>
 <span class="n">survey</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;work_interfere_withtreat&#39;</span><span class="p">,</span> <span class="s1">&#39;work_interfere_notreat&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
@@ -15798,13 +15643,22 @@ a.anchor-link {
 </div>
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>After we've handled the differences between the 2014 and 2016 work_interfere responses, we can group them for clarity. The groups are as follows:</p>
+<li>No, Never, and Rarely -> Little to No Interference</li>
+<li>Sometimes -> Moderate Interference</li>
+<li>Yes, Often -> Significant Interference</li>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">survey</span><span class="p">[</span><span class="s1">&#39;work_interfere&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;Never&#39;</span><span class="p">,</span> <span class="s1">&#39;Rarely&#39;</span><span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;Little to No Interference&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Uses DataFrame.replace to group work_interfere as described above</span>
+<span class="n">survey</span><span class="p">[</span><span class="s1">&#39;work_interfere&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;Never&#39;</span><span class="p">,</span> <span class="s1">&#39;Rarely&#39;</span><span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;Little to No Interference&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">survey</span><span class="p">[</span><span class="s1">&#39;work_interfere&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sometimes&#39;</span><span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;Moderate Interference&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">survey</span><span class="p">[</span><span class="s1">&#39;work_interfere&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;Often&#39;</span><span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;Significant Interference&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">survey</span><span class="p">[</span><span class="s1">&#39;work_interfere&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Unsure&#39;</span><span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -15821,7 +15675,8 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">survey</span><span class="p">[</span><span class="s1">&#39;no_employees&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">survey</span><span class="p">[</span><span class="s1">&#39;no_employees&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Casts the no_employees as strings to use as an axis-value later</span>
+<span class="n">survey</span><span class="p">[</span><span class="s1">&#39;no_employees&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">survey</span><span class="p">[</span><span class="s1">&#39;no_employees&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15832,10 +15687,10 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[35]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">survey</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">survey</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15851,1083 +15706,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Gender</th>
-      <th>Age</th>
-      <th>family_history</th>
-      <th>benefits</th>
-      <th>care_options</th>
-      <th>wellness_program</th>
-      <th>seek_help</th>
-      <th>anonymity</th>
-      <th>leave</th>
-      <th>mental_health_consequence</th>
-      <th>phys_health_consequence</th>
-      <th>coworkers</th>
-      <th>supervisor</th>
-      <th>mental_vs_physical</th>
-      <th>obs_consequence</th>
-      <th>no_employees</th>
-      <th>work_interfere</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Female</td>
-      <td>37.0</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Not sure</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Somewhat easy</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Some of them</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>6-25</td>
-      <td>Significant Interference</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Male</td>
-      <td>44.0</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Maybe</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>More than 1000</td>
-      <td>Little to No Interference</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Male</td>
-      <td>32.0</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>Somewhat difficult</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td>6-25</td>
-      <td>Little to No Interference</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Male</td>
-      <td>31.0</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Somewhat difficult</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Some of them</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>26-100</td>
-      <td>Significant Interference</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Male</td>
-      <td>31.0</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Some of them</td>
-      <td>Yes</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>100-500</td>
-      <td>Little to No Interference</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Male</td>
-      <td>33.0</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Not sure</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>6-25</td>
-      <td>Moderate Interference</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Female</td>
-      <td>35.0</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Somewhat difficult</td>
-      <td>Maybe</td>
-      <td>Maybe</td>
-      <td>Some of them</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>1-5</td>
-      <td>Moderate Interference</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Male</td>
-      <td>39.0</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>1-5</td>
-      <td>Little to No Interference</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Female</td>
-      <td>42.0</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Very difficult</td>
-      <td>Maybe</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td>100-500</td>
-      <td>Moderate Interference</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>Male</td>
-      <td>23.0</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>26-100</td>
-      <td>Little to No Interference</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>Male</td>
-      <td>31.0</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Some of them</td>
-      <td>Yes</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>6-25</td>
-      <td>Moderate Interference</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>Male</td>
-      <td>29.0</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>Not sure</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>100-500</td>
-      <td>Little to No Interference</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>Female</td>
-      <td>42.0</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>Somewhat difficult</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>26-100</td>
-      <td>Moderate Interference</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>Male</td>
-      <td>36.0</td>
-      <td>Yes</td>
-      <td>NaN</td>
-      <td>Not sure</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>500-1000</td>
-      <td>Little to No Interference</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>Male</td>
-      <td>27.0</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>Not sure</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Somewhat easy</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Some of them</td>
-      <td>Some of them</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>6-25</td>
-      <td>Little to No Interference</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>Female</td>
-      <td>29.0</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Not sure</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>Somewhat easy</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Some of them</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>26-100</td>
-      <td>Little to No Interference</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>Male</td>
-      <td>23.0</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Very easy</td>
-      <td>Maybe</td>
-      <td>No</td>
-      <td>Some of them</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>26-100</td>
-      <td>Moderate Interference</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>Male</td>
-      <td>32.0</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Maybe</td>
-      <td>No</td>
-      <td>Some of them</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td>6-25</td>
-      <td>Moderate Interference</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>Male</td>
-      <td>46.0</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Not sure</td>
-      <td>Yes</td>
-      <td>NaN</td>
-      <td>Yes</td>
-      <td>Very easy</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>1-5</td>
-      <td>Moderate Interference</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>Male</td>
-      <td>36.0</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Somewhat easy</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Some of them</td>
-      <td>Some of them</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>6-25</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>Male</td>
-      <td>29.0</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Somewhat difficult</td>
-      <td>Maybe</td>
-      <td>No</td>
-      <td>Some of them</td>
-      <td>Some of them</td>
-      <td>No</td>
-      <td>No</td>
-      <td>100-500</td>
-      <td>Moderate Interference</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>Male</td>
-      <td>31.0</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Somewhat difficult</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Some of them</td>
-      <td>Some of them</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>1-5</td>
-      <td>Little to No Interference</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>Male</td>
-      <td>46.0</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Maybe</td>
-      <td>No</td>
-      <td>Some of them</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td>26-100</td>
-      <td>Significant Interference</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>Male</td>
-      <td>41.0</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Maybe</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>More than 1000</td>
-      <td>Little to No Interference</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>Male</td>
-      <td>33.0</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Not sure</td>
-      <td>NaN</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>26-100</td>
-      <td>Little to No Interference</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>Male</td>
-      <td>35.0</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>Very easy</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Some of them</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td>More than 1000</td>
-      <td>Moderate Interference</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>Male</td>
-      <td>33.0</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>Not sure</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Maybe</td>
-      <td>Maybe</td>
-      <td>Some of them</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>1-5</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>Female</td>
-      <td>35.0</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>6-25</td>
-      <td>Little to No Interference</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>Male</td>
-      <td>34.0</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>Not sure</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Somewhat difficult</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Some of them</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>26-100</td>
-      <td>Moderate Interference</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>Male</td>
-      <td>37.0</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>Very difficult</td>
-      <td>Yes</td>
-      <td>Maybe</td>
-      <td>Some of them</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>6-25</td>
-      <td>Moderate Interference</td>
-    </tr>
-    <tr>
-      <th>30</th>
-      <td>Male</td>
-      <td>32.0</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Some of them</td>
-      <td>Some of them</td>
-      <td>No</td>
-      <td>No</td>
-      <td>6-25</td>
-      <td>Little to No Interference</td>
-    </tr>
-    <tr>
-      <th>31</th>
-      <td>Male</td>
-      <td>31.0</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>Somewhat difficult</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>1-5</td>
-      <td>Little to No Interference</td>
-    </tr>
-    <tr>
-      <th>32</th>
-      <td>Male</td>
-      <td>30.0</td>
-      <td>Yes</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Somewhat easy</td>
-      <td>Maybe</td>
-      <td>No</td>
-      <td>Some of them</td>
-      <td>Yes</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>500-1000</td>
-      <td>Moderate Interference</td>
-    </tr>
-    <tr>
-      <th>33</th>
-      <td>Male</td>
-      <td>42.0</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Very easy</td>
-      <td>Maybe</td>
-      <td>No</td>
-      <td>Some of them</td>
-      <td>Some of them</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>26-100</td>
-      <td>Moderate Interference</td>
-    </tr>
-    <tr>
-      <th>34</th>
-      <td>Female</td>
-      <td>40.0</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Maybe</td>
-      <td>No</td>
-      <td>Some of them</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>1-5</td>
-      <td>Moderate Interference</td>
-    </tr>
-    <tr>
-      <th>35</th>
-      <td>Male</td>
-      <td>27.0</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>Very easy</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>6-25</td>
-      <td>Little to No Interference</td>
-    </tr>
-    <tr>
-      <th>36</th>
-      <td>Male</td>
-      <td>29.0</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>Very easy</td>
-      <td>Yes</td>
-      <td>Maybe</td>
-      <td>Some of them</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>1-5</td>
-      <td>Little to No Interference</td>
-    </tr>
-    <tr>
-      <th>37</th>
-      <td>Male</td>
-      <td>38.0</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>Somewhat easy</td>
-      <td>Maybe</td>
-      <td>No</td>
-      <td>Some of them</td>
-      <td>Some of them</td>
-      <td>No</td>
-      <td>No</td>
-      <td>100-500</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>38</th>
-      <td>Male</td>
-      <td>50.0</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Some of them</td>
-      <td>Yes</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>100-500</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>39</th>
-      <td>Male</td>
-      <td>35.0</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Very easy</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>More than 1000</td>
-      <td>Little to No Interference</td>
-    </tr>
-    <tr>
-      <th>40</th>
-      <td>Male</td>
-      <td>24.0</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Maybe</td>
-      <td>Maybe</td>
-      <td>Some of them</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>6-25</td>
-      <td>Moderate Interference</td>
-    </tr>
-    <tr>
-      <th>41</th>
-      <td>Male</td>
-      <td>35.0</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Not sure</td>
-      <td>NaN</td>
-      <td>Yes</td>
-      <td>NaN</td>
-      <td>Somewhat difficult</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Some of them</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>More than 1000</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>42</th>
-      <td>Male</td>
-      <td>27.0</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Very difficult</td>
-      <td>Maybe</td>
-      <td>No</td>
-      <td>Some of them</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>1-5</td>
-      <td>Moderate Interference</td>
-    </tr>
-    <tr>
-      <th>43</th>
-      <td>Male</td>
-      <td>18.0</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Not sure</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>Somewhat difficult</td>
-      <td>Yes</td>
-      <td>Maybe</td>
-      <td>No</td>
-      <td>Some of them</td>
-      <td>No</td>
-      <td>No</td>
-      <td>6-25</td>
-      <td>Significant Interference</td>
-    </tr>
-    <tr>
-      <th>44</th>
-      <td>Male</td>
-      <td>30.0</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>26-100</td>
-      <td>Moderate Interference</td>
-    </tr>
-    <tr>
-      <th>45</th>
-      <td>Female</td>
-      <td>38.0</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Somewhat easy</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Some of them</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>26-100</td>
-      <td>Moderate Interference</td>
-    </tr>
-    <tr>
-      <th>46</th>
-      <td>Male</td>
-      <td>28.0</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>Not sure</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>Maybe</td>
-      <td>Some of them</td>
-      <td>Yes</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>26-100</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>47</th>
-      <td>Male</td>
-      <td>34.0</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>6-25</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>48</th>
-      <td>Male</td>
-      <td>26.0</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>1-5</td>
-      <td>Moderate Interference</td>
-    </tr>
-    <tr>
-      <th>49</th>
-      <td>Male</td>
-      <td>30.0</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Maybe</td>
-      <td>No</td>
-      <td>Some of them</td>
-      <td>Yes</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>26-100</td>
-      <td>Little to No Interference</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">survey</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">],</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[35]:</div>
 
 
 
@@ -16961,10 +15740,10 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">survey</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">survey</span><span class="p">[</span><span class="s1">&#39;family_history&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">())</span>
 </pre></div>
 
      </div>
@@ -16980,7 +15759,60 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[26]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>&lt;AxesSubplot:xlabel=&#39;family_history&#39;, ylabel=&#39;Count&#39;&gt;</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">survey</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">())</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[27]:</div>
 
 
 
@@ -17014,11 +15846,11 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">survey</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">&#39;work_interfere&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">g</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
