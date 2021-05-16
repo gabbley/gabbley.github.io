@@ -15469,10 +15469,11 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[57]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">survey</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Not applicable to me&#39;</span><span class="p">,</span> <span class="s1">&#39;Don</span><span class="se">\&#39;</span><span class="s1">t know&#39;</span><span class="p">,</span> <span class="s1">&#39;I don</span><span class="se">\&#39;</span><span class="s1">t know&#39;</span><span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Replaces the following responses with NaN values</span>
+<span class="n">survey</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Not applicable to me&#39;</span><span class="p">,</span> <span class="s1">&#39;Don</span><span class="se">\&#39;</span><span class="s1">t know&#39;</span><span class="p">,</span> <span class="s1">&#39;I don</span><span class="se">\&#39;</span><span class="s1">t know&#39;</span><span class="p">,</span> <span class="s1">&#39;Not sure&#39;</span><span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15483,15 +15484,18 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[59]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-<span class="n">survey</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">number</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">survey</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">))</span>
-
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Uses Label Encoder to code &#39;Yes&#39;, &#39;No&#39;, and other responses using 0, 1, and 2.</span>
+<span class="c1"># Here, we are making our categorical variables into numerica values to use for</span>
+<span class="c1"># our later logistic regression.</span>
 <span class="n">number</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">survey</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">number</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">survey</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">))</span>
 <span class="n">survey</span><span class="p">[</span><span class="s1">&#39;family_history&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">number</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">survey</span><span class="p">[</span><span class="s1">&#39;family_history&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">))</span>
-<span class="n">survey</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="c1"># Outputs the first 3 rows of survey to see our new values</span>
+<span class="n">survey</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15507,7 +15511,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[59]:</div>
 
 
 
@@ -15533,134 +15537,42 @@ a.anchor-link {
       <th>Gender</th>
       <th>Age</th>
       <th>family_history</th>
-      <th>benefits</th>
-      <th>care_options</th>
-      <th>wellness_program</th>
-      <th>seek_help</th>
-      <th>anonymity</th>
-      <th>leave</th>
-      <th>mental_health_consequence</th>
-      <th>phys_health_consequence</th>
-      <th>coworkers</th>
-      <th>supervisor</th>
-      <th>mental_vs_physical</th>
-      <th>obs_consequence</th>
       <th>no_employees</th>
       <th>work_interfere</th>
-      <th>work_interfere_withtreat</th>
-      <th>work_interfere_notreat</th>
+      <th>workplace_score</th>
+      <th>no_employees_med</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
       <td>0</td>
-      <td>37</td>
+      <td>37.0</td>
       <td>0</td>
-      <td>Yes</td>
-      <td>Not sure</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Somewhat easy</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Some of them</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
       <td>6-25</td>
-      <td>Often</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>Moderate to Significant Interference</td>
+      <td>20</td>
+      <td>16</td>
     </tr>
     <tr>
       <th>2</th>
       <td>1</td>
-      <td>32</td>
+      <td>32.0</td>
       <td>0</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>Somewhat difficult</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
       <td>6-25</td>
-      <td>Rarely</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>Little to No Interference</td>
+      <td>3</td>
+      <td>16</td>
     </tr>
     <tr>
       <th>3</th>
       <td>1</td>
-      <td>31</td>
+      <td>31.0</td>
       <td>1</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Somewhat difficult</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Some of them</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
       <td>26-100</td>
-      <td>Often</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1</td>
-      <td>31</td>
-      <td>0</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Some of them</td>
-      <td>Yes</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>100-500</td>
-      <td>Never</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>1</td>
-      <td>33</td>
-      <td>1</td>
-      <td>Yes</td>
-      <td>Not sure</td>
-      <td>No</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>NaN</td>
-      <td>No</td>
-      <td>6-25</td>
-      <td>Sometimes</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>Moderate to Significant Interference</td>
+      <td>16</td>
+      <td>63</td>
     </tr>
   </tbody>
 </table>
