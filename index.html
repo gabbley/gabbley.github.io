@@ -14259,7 +14259,7 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Workplace-attitudes-towards-mental-health-and-their-impact-on-employee-productivity">Workplace attitudes towards mental health and their impact on employee productivity<a class="anchor-link" href="#Workplace-attitudes-towards-mental-health-and-their-impact-on-employee-productivity">&#182;</a></h1><p>A Tutorial and Introduction to the Data Science Pipeline by Gabrielle Baniqued</p>
+<h1 id="Workplace-attitudes-towards-mental-health-and-their-impact-on-employee-productivity">Workplace attitudes towards mental health and their impact on employee productivity<a class="anchor-link" href="#Workplace-attitudes-towards-mental-health-and-their-impact-on-employee-productivity">&#182;</a></h1><p><b>A Tutorial and Introduction to the Data Science Pipeline by Gabrielle Baniqued</b></p>
 <h1 id="What-is-the-Data-Science-Pipeline?">What is the Data Science Pipeline?<a class="anchor-link" href="#What-is-the-Data-Science-Pipeline?">&#182;</a></h1><p>Our walkthrough of the Data Science Pipeline will consist of the following:</p>
 <li>Data Collection</li>
 <li>Data Management and Representation</li>
@@ -14270,15 +14270,16 @@ a.anchor-link {
 <li>Beliefs and attitudes about mental illness might predict if an individual discloses symptoms or seek treatment/support</li>
 <li>Individuals are less likely to disclose mental illness/seek support if there is perceived stigma around it in their community</li>
 <li>The probability of adults receiving mental health treatment increased when states provided more funding/made it more accessible</li>
-<li>Statewide, positive attitudes towards receiving treatment for mental disorders was associated with higher per capita expenditure on state mental health agencies</li><p>On a state level, the CDC found lack of accessibility to mental health resources and negative stigma around the topic was correlated to less individuals seeking mental health treatment. On the other hand, states where attitudes towards mental health were positive (i.e., believing treatment is effective and important) and resources were within access, also saw an increase in the number of individuals benefiting from treatments for mental disorders.</p>
+<li>Statewide, positive attitudes towards receiving treatment for mental disorders was associated with higher per capita expenditure on state mental health agencies</li><p>On a state level, the CDC found lack of accessibility to mental health resources and negative stigma around the topic was correlated with less individuals seeking mental health treatment. On the other hand, states where attitudes towards mental health were positive (i.e., believing treatment is effective and important) and resources were easily accessible, also saw an increase in the number of individuals benefiting from treatments for mental disorders.</p>
 <p>The following project takes the reasoning from the aforementioned CDC study and applies it to a different environment.</p>
 <p>We will be exploring the following inquiry: <b><i>do workplace attitudes about mental health influence employee productivity?</i></b></p>
 <h1 id="1.-Data-Collection">1. Data Collection<a class="anchor-link" href="#1.-Data-Collection">&#182;</a></h1><p>To answer our inquiry, we will be using OSMI (Open Sourcing Mental Illness, LTD) survey data from 2014 and 2016 regarding mental health in the tech workplace.</p>
 <p>Sometimes, data will have to be collected (ex. web scraping), parsed through, and organized before we can actually start using it. In this case, however, the data has been collected for us.</p>
-<p>The survey data can be downloaded as csv files from Kaggle:</p>
+<p>The survey data is publicly available and can be downloaded as csv files from Kaggle:</p>
 <p><li><a href="https://www.kaggle.com/osmi/mental-health-in-tech-survey">OSMI Mental Health in Tech Survey (2014)</a></li></p>
 <p><li><a href="https://www.kaggle.com/osmi/mental-health-in-tech-2016">OSMI Mental Health in Tech Survey (2016)</a></li>
 Both of these surveys aimed to measure attitudes towards mental health and frequency of mental health disorders among tech workers.</p>
+<p>The code below will load the data into pandas Dataframes. For a majority of this project, we will be using pandas DataFrame methods. The documentation can be found <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html">here</a>.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -14290,17 +14291,10 @@ Both of these surveys aimed to measure attitudes towards mental health and frequ
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#import statements</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
 <span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
 </pre></div>
 
      </div>
@@ -15208,6 +15202,8 @@ Both of these surveys aimed to measure attitudes towards mental health and frequ
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Now, combining the two DataFrames is easy.</span>
 <span class="n">survey</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">subset_2014</span><span class="p">,</span> <span class="n">subset_2016</span><span class="p">])</span>
+
+<span class="c1"># Outputting our new DataFrame, survey</span>
 <span class="n">survey</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
@@ -15391,14 +15387,14 @@ Both of these surveys aimed to measure attitudes towards mental health and frequ
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="2.-Data-Management-and-Representation">2. Data Management and Representation<a class="anchor-link" href="#2.-Data-Management-and-Representation">&#182;</a></h1><p>If we wanted to use all of our survey data, it would be valuable for us to clean all of it and discuss it. In this case, we are looking ahead and letting our later part of the project (machine learning, modeling, etc.) inform the data we should tidy.</p>
 <h2 id="Preparing-for-later-modeling---target-and-predictor-values">Preparing for later modeling - target and predictor values<a class="anchor-link" href="#Preparing-for-later-modeling---target-and-predictor-values">&#182;</a></h2><p>Now that our two surveys are combined into one DataFrame, we can decide on our predictors and target for our modeling later on.</p>
-<p>Out of all of the columns (in our modified DataFrame), two measures of mental wellness can be found in treatment and work_interfere. My specific inquiry: the effect of mental health on productivity, is best measured by work_interfere. <b>We will choose <i>work_interfere</i> as our target.</b></p>
-<h3 id="Thinking-ahead:-Tidying-Gender,-Age,-family_history">Thinking ahead: Tidying Gender, Age, family_history<a class="anchor-link" href="#Thinking-ahead:-Tidying-Gender,-Age,-family_history">&#182;</a></h3><p>Intuitively, I can identify some 'obvious' predictors: gender, age, family_history. These predictors have to do with the employee his/her/themself.</p>
-<p>However, for my specific inquiry, I would like to try to identify predictors on behalf of the workplace: workplace size, culture, attitudes towards mental health and determine their signifiance. In addition to predictors related to the employee, we will also focus on predictors regarding the workplace.</p>
+<p>Out of all of the columns (in our modified DataFrame), two measures of mental wellness can be found in treatment and work_interfere. <b>treatment</b> measures if a respondent has ever received treatment for any mental disorders, implying that responses of 'Yes' imply a personal history of mental illness. <b>work_interfere</b> measures if a respondent's mental state/disorder interrupts their work. Our specific inquiry: the effect of mental health attitudes on productivity, is best measured by work_interfere. <b>We will choose <i>work_interfere</i> as our target.</b></p>
+<h3 id="Thinking-ahead:-Tidying-Gender,-Age,-family_history">Thinking ahead: Tidying Gender, Age, family_history<a class="anchor-link" href="#Thinking-ahead:-Tidying-Gender,-Age,-family_history">&#182;</a></h3><p>Intuitively, I can identify some 'obvious' predictors: gender, age, family_history. These predictors have to do with the employee his/her/themself. We will explore if my intuition is reasonable in the Exploratory Data Analysis (EDA) phase.</p>
 <p><b>Gender:</b> This question in the survey was free response, leaving us a lot of data to clean up. Gender is also increasingly being understood as non-binary, i.e., not just Male/Female. We will clean up, group the gender responses into three categories, and then assign each category a numerical value: Male: 0, Female: 1, and Nonbinary: 2, to use for Logistic Regression later on.</p>
 <p><b>Age:</b> After getting rid of any invalid ages, we will keep age as a continuous variable (vs. making into a categorial variable).</p>
 <p><b>family_history:</b> This question is answered by 'Yes', 'No', or 'I don't know'. 'I don't know' will be processed as a NaN value, and 'Yes' and 'No' will also be assigned numerical values, 0 for No, 1 for Yes.</p>
+<p>However, for my specific inquiry, I would also like to try to identify predictors on behalf of the workplace: workplace size, culture, attitudes towards mental health and determine their signifiance. In addition to predictors related to the employee, we will also focus on predictors regarding the workplace.</p>
 <h3 id="Thinking-ahead:-Tidying-no_employees-and-measuring-workplace-culture/attitude">Thinking ahead: Tidying no_employees and measuring workplace culture/attitude<a class="anchor-link" href="#Thinking-ahead:-Tidying-no_employees-and-measuring-workplace-culture/attitude">&#182;</a></h3><p><b>no_employees:</b> The survey already provides us with grouped company sizes: 1-5, 6-25, 26-100, 100-500, 500-1000, More than 1000. We will stick with these groupings.</p>
-<p>Measuring workplace culture/attitude: However, 'workplace culture' or 'attitudes' are more difficult to measure based on the data we are given. Our plan is, for each response, to score the responses related to the workplace culture/attitudes questions (which are generally answered in a 'Yes, Maybe, No' fashion) and assign a workplace_score to each employee/row. For simplicity, we will weight each question equally.</p>
+<p><b>Measuring workplace culture/attitude: </b>However, 'workplace culture' or 'attitudes' are more difficult to measure based on the data we are given. Our plan is, for each response, to score the responses related to the workplace culture/attitudes questions (which are generally answered in a 'Yes, Maybe, No' fashion) and assign a workplace_score to each employee/row. For simplicity, we will weight each question equally.</p>
 <p><b>However, we can't just naively assign Yes as +1 and No as -1,</b> since the meaning of the answer depends on the value of the question. So, we will determine the intention of the questions, classify them as such, and then score 'positive answers' by incrementing 1, 'negative answers' by decrementing 1, and 'netural answers' with a 0, unaffecting the score.</p>
 
 </div>
@@ -15473,13 +15469,16 @@ Both of these surveys aimed to measure attitudes towards mental health and frequ
 <span class="c1"># Replacing all other values and classifying under &#39;Nonbinary&#39;, i.e., not under the binary of M/F.</span>
 <span class="n">survey</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;non-binary&#39;</span><span class="p">,</span> <span class="s1">&#39;nonbinary&#39;</span><span class="p">,</span> <span class="s1">&#39;unicorn&#39;</span><span class="p">,</span> <span class="s1">&#39;enby&#39;</span><span class="p">,</span> <span class="s1">&#39;genderqueer&#39;</span><span class="p">,</span> <span class="s1">&#39;agender&#39;</span><span class="p">,</span> 
                                      <span class="s1">&#39;neuter&#39;</span><span class="p">,</span> <span class="s1">&#39;queer&#39;</span><span class="p">,</span> <span class="s1">&#39;bigender&#39;</span><span class="p">,</span> <span class="s1">&#39;androgynous&#39;</span><span class="p">,</span> <span class="s1">&#39;nb masculine&#39;</span><span class="p">,</span> <span class="s1">&#39;androgyne&#39;</span><span class="p">,</span>
-                                    <span class="s1">&#39;ostensibly male&#39;</span><span class="p">,</span> <span class="s1">&#39;Guy (-ish) ^_^&#39;</span><span class="p">,</span> <span class="s1">&#39;male leaning androgynous&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;ostensibly male&#39;</span><span class="p">,</span> <span class="s1">&#39;guy (-ish) ^_^&#39;</span><span class="p">,</span> <span class="s1">&#39;male leaning androgynous&#39;</span><span class="p">,</span>
                                     <span class="s1">&#39;ostensibly male, unsure what that really means&#39;</span><span class="p">],</span> 
                          <span class="n">value</span><span class="o">=</span><span class="s1">&#39;Nonbinary&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Certain values were not classified and dropped, such as nonsensical answers (&#39;Nah&#39;, &#39;p&#39;, &#39;A little about you&#39;)</span>
 <span class="c1"># NaN values were also dropped. The below code updates the survey DataFrame as described.</span>
 <span class="n">survey</span> <span class="o">=</span> <span class="n">survey</span><span class="p">[</span><span class="n">survey</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;Male&#39;</span><span class="p">,</span> <span class="s1">&#39;Female&#39;</span><span class="p">,</span> <span class="s1">&#39;Nonbinary&#39;</span><span class="p">])]</span>
+
+<span class="c1"># Removes I don&#39;t know values from family_history</span>
+<span class="n">survey</span> <span class="o">=</span> <span class="n">survey</span><span class="p">[</span><span class="n">survey</span><span class="p">[</span><span class="s1">&#39;family_history&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">])]</span>
 </pre></div>
 
      </div>
@@ -15495,7 +15494,6 @@ Both of these surveys aimed to measure attitudes towards mental health and frequ
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Replaces the following responses with NaN values</span>
 <span class="n">survey</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Not applicable to me&#39;</span><span class="p">,</span> <span class="s1">&#39;Don</span><span class="se">\&#39;</span><span class="s1">t know&#39;</span><span class="p">,</span> <span class="s1">&#39;Not sure&#39;</span><span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">survey</span> <span class="o">=</span> <span class="n">survey</span><span class="p">[</span><span class="n">survey</span><span class="p">[</span><span class="s1">&#39;family_history&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">])]</span>
 </pre></div>
 
      </div>
@@ -15503,6 +15501,12 @@ Both of these surveys aimed to measure attitudes towards mental health and frequ
 </div>
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>A common way to handle categorical variables is to use sklearn's <b>LabelEncoder</b> to transform our variables into numerical values. The documentation can be found <a href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html">here</a>. We use this in the code below.</p>
+
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -15515,7 +15519,6 @@ Both of these surveys aimed to measure attitudes towards mental health and frequ
 <span class="n">number</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
 <span class="n">survey</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">number</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">survey</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">))</span>
 <span class="n">survey</span><span class="p">[</span><span class="s1">&#39;family_history&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">number</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">survey</span><span class="p">[</span><span class="s1">&#39;family_history&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">))</span>
-
 
 <span class="c1"># Outputs the first 3 rows of survey to see our new values</span>
 <span class="n">survey</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -15656,10 +15659,50 @@ Both of these surveys aimed to measure attitudes towards mental health and frequ
 
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Below, we will translate the categorical value for no_employees into a numerical value. This will assist with our Logistic Regression later on.</p>
+
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Casts the no_employees column to str values for replacement</span>
+<span class="c1"># and to more easily be used as an x-axis value later</span>
+<span class="n">survey</span><span class="p">[</span><span class="s1">&#39;no_employees&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">survey</span><span class="p">[</span><span class="s1">&#39;no_employees&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+
+<span class="c1"># Replacing ranges of employee size with the median of each lower bound and</span>
+<span class="c1"># upper bound. There is a sacrifice of accuracy here, and it is not the sole option</span>
+<span class="c1"># option in dealing with categorial variables, but it will prepare our predictor</span>
+<span class="c1"># for our Logistic Regression later on.</span>
+
+<span class="c1"># We will store these values in a separate column, since we would</span>
+<span class="c1"># still like to inspect the no_employee ranges as given by the survey.</span>
+<span class="n">survey</span><span class="p">[</span><span class="s1">&#39;no_employees_med&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">survey</span><span class="p">[</span><span class="s1">&#39;no_employees&#39;</span><span class="p">]</span>
+
+<span class="c1"># Note: since &#39;More than 1000&#39; did not have an upper bound, I naively assigned</span>
+<span class="c1"># it to be 2000, and assigned the median as 1500.</span>
+<span class="n">survey</span><span class="p">[</span><span class="s1">&#39;no_employees_med&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1-5&#39;</span><span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">survey</span><span class="p">[</span><span class="s1">&#39;no_employees_med&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;6-25&#39;</span><span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">survey</span><span class="p">[</span><span class="s1">&#39;no_employees_med&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;26-100&#39;</span><span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="mi">63</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">survey</span><span class="p">[</span><span class="s1">&#39;no_employees_med&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;100-500&#39;</span><span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">survey</span><span class="p">[</span><span class="s1">&#39;no_employees_med&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;500-1000&#39;</span><span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="mi">750</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">survey</span><span class="p">[</span><span class="s1">&#39;no_employees_med&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;More than 1000&#39;</span><span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># There are a handful of invalid ages, such as values well above 100 and negative values.</span>
@@ -15677,17 +15720,16 @@ Both of these surveys aimed to measure attitudes towards mental health and frequ
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><p><b>Handling work_interfere differences between 2014 and 2016</b></p>
-One of the changes between the 2014 and 2016 surveys that presents a problem for my specific inquiry is that the 2016 survey asks for level of work interference due to mental health with or without effective treatment. The 2014 survey asks for work interference without the added conditions.</p>
+One of the changes between the 2014 and 2016 surveys that presents a problem for our specific inquiry is that the 2016 survey asks for level of work interference due to mental health with or without effective treatment. The 2014 survey asks for work interference without the added conditions.</p>
 <p>The code below consolidates the two columns from 2016 into the one work_interfere column based on the following conditions:</p>
 <li>If one of the two columns is a NaN value, the non-NaN value is used.</li>
-<li>If both are NaN, no action is taken, since the work_interfere column will either have a value or NaN value in the cell by default</li>
-<li>If both are not NaN values, we use random.choice() to randomly choose between the two options (Hot deck imputation/simple imputation).</li><p>Afterwards, we drop the 2016 columns (we don't need them anymore!) All non-NaN values should be under the work_interfere column now.</p>
-
+<li>If both are NaN, no action is taken, since the work_interfere column will either have a value or NaN value in the cell by default.</li>
+<li>If both are not NaN values, we use random.choice() to randomly choose between the two options. This is known as Hot Deck Imputation, which handles missing data by randomly replacing it with an observed response with a similar value. You can read about it more extensively <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3130338/#:~:text=Hot%20deck%20imputation%20is%20a,that%20of%20other%20imputation%20methods.">here</a>.</li>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Iterate through the survey DataFrame to handle work_interfere as described above</span>
@@ -15700,8 +15742,26 @@ One of the changes between the 2014 and 2016 surveys that presents a problem for
         <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;work_interfere&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">wi_nt</span>
     <span class="k">elif</span> <span class="n">wi_t</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="ow">and</span> <span class="n">wi_nt</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">:</span>
         <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;work_interfere&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="n">wi_t</span><span class="p">,</span> <span class="n">wi_nt</span><span class="p">])</span>
+</pre></div>
 
-<span class="c1"># drops 2016 survey work_interfere columns</span>
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Afterwards, we drop the two 2016 work_interfere_with/notreat columns (we don't need them anymore!) All non-NaN values should be under the one work_interfere column now.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># drops 2016 survey work_interfere columns</span>
 <span class="n">survey</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;work_interfere_withtreat&#39;</span><span class="p">,</span> <span class="s1">&#39;work_interfere_notreat&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
@@ -15721,7 +15781,7 @@ One of the changes between the 2014 and 2016 surveys that presents a problem for
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Uses DataFrame.replace to group work_interfere as described above</span>
@@ -15740,26 +15800,30 @@ One of the changes between the 2014 and 2016 surveys that presents a problem for
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><p>As we discussed earlier, we will be create our own scoring to determine a company's workplace culture and attitudes. We will call this <b>workplace_score.</b> The following questions/values will be used to determine the score.</p></p>
 <p><p></p></p>
-<p><li> benefits: Does your employer provide mental health benefits? </li></p>
-<p><li> care_options: Do you know the options for mental health care your employer provides?</li></p>
-<p><li> wellness_program: Has your employer ever discussed mental health as part of an employee wellness program?</li></p>
-<p><li> seek_help: Does your employer provide resources to learn more about mental health issues and how to seek help?</li></p>
-<p><li> anonymity: Is your anonymity protected if you choose to take advantage of mental health or substance abuse treatment resources?</li></p>
-<p><li> leave: How easy is it for you to take medical leave for a mental health condition?</li></p>
-<p><li> mentalhealthconsequence: Do you think that discussing a mental health issue with your employer would have negative consequences?</li></p>
-<p><li> physhealthconsequence: Do you think that discussing a physical health issue with your employer would have negative consequences?</li></p>
-<p><li> coworkers: Would you be willing to discuss a mental health issue with your coworkers?</li></p>
-<p><li> supervisor: Would you be willing to discuss a mental health issue with your direct supervisor(s)?</li></p>
-<p><li> mentalvsphysical: Do you feel that your employer takes mental health as seriously as physical health?</li></p>
-<p><li> obs_consequence: Have you heard of or observed negative consequences for coworkers with mental health conditions in your workplace?</li></p>
-<p><p></p>
-We will intuitively classify the questions as a 'positive question' or a 'negative question'. A positive question is one where 'yes' will increase the score, and 'no' will decrease the score. A 'negative question' will work in the opposite way. Any other questions that don't fit in this binary will be classified and scored individually. This will be reflected in the code below:</p>
+<li> benefits: Does your employer provide mental health benefits? </li>
+<li> care_options: Do you know the options for mental health care your employer provides?</li>
+<li> wellness_program: Has your employer ever discussed mental health as part of an employee wellness program?</li>
+<li> seek_help: Does your employer provide resources to learn more about mental health issues and how to seek help?</li>
+<li> anonymity: Is your anonymity protected if you choose to take advantage of mental health or substance abuse treatment resources?</li>
+<li> leave: How easy is it for you to take medical leave for a mental health condition?</li>
+<li> mentalhealthconsequence: Do you think that discussing a mental health issue with your employer would have negative consequences?</li>
+<li> physhealthconsequence: Do you think that discussing a physical health issue with your employer would have negative consequences?</li>
+<li> coworkers: Would you be willing to discuss a mental health issue with your coworkers?</li>
+<li> supervisor: Would you be willing to discuss a mental health issue with your direct supervisor(s)?</li>
+<li> mentalvsphysical: Do you feel that your employer takes mental health as seriously as physical health?</li>
+<li> obs_consequence: Have you heard of or observed negative consequences for coworkers with mental health conditions in your workplace?</li>
+<p></p>
+We will intuitively classify the questions as a 'positive question' or a 'negative question'. A positive question is one where 'yes' will increase the score, and 'no' will decrease the score. A 'negative question' will work in the opposite way. Any other questions that don't fit in this binary will be classified and scored individually.
+
+Let's get familiar with what the scores mean:
+<li><b>A high workplace_score</b> indicates a workplace where mental health resources are accessible and common knowledge, there are little to no consequences for being open about one's mental illness(es), and individuals are comfortable discussing the topic.</li>
+<li><b>A low workplace_score</b> indicates a workplace where mental health resources are not accessible and/or not well-communicated, there are observed consequences for being open about one's mental illness(es), and individuals are not comfortable discussing the topic.</li><p>The calculation of the scores will be reflected in the code below:</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Classifying questions into &#39;positive questions&#39; and &#39;negative questions&#39;</span>
@@ -15776,7 +15840,7 @@ We will intuitively classify the questions as a 'positive question' or a 'negati
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># we will put all of the scores in a list to send in</span>
@@ -15824,7 +15888,7 @@ We will intuitively classify the questions as a 'positive question' or a 'negati
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Since these columns have been operationalized into one column, no longer need them</span>
@@ -15838,33 +15902,28 @@ We will intuitively classify the questions as a 'positive question' or a 'negati
 </div>
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="3.-Exploratory-Data-Analysis">3. Exploratory Data Analysis<a class="anchor-link" href="#3.-Exploratory-Data-Analysis">&#182;</a></h1><h2 id="Inspecting-our-data">Inspecting our data<a class="anchor-link" href="#Inspecting-our-data">&#182;</a></h2><p>Now that we've tidied up our data and organized it according to our inquiry, it will be helpful for us to understand the data we're using. The code below outputs distributions and countplots for us to make observations about our dataset and then revisit any hypotheses or thoughts we may have had in the earlier phases. The observations we make will inform how we will approach making our prediction model.</p>
+<h3 id="Predictions">Predictions<a class="anchor-link" href="#Predictions">&#182;</a></h3><p>Our inquiry seeks to determine connections between mental health attitudes/culture in the tech workplace (workplace_score) and employee productivity (levels of work interference due to personal mental health/work_interfere). I would expect a high workplace_score, indicating a workplace culture where mental wellness is prioritized and talked openly about without consequence, to be associated with less work interference (i.e., under the 'Little to No Interference' class).</p>
+<p>In order to evaluate the strength of the correlation between work_interference and workplace_score, I also want to evaluate how other predictors, (Age, Gender, family_history, and no_employees), interact with work_interference, and then compare.</p>
+<p>I predict that, out of the four predictors, family_history and Gender will be the most significant.</p>
+<p>The code below for the Exploratory Data Analysis (EDA) section will utilize seaborn and matplotlib to produce plots. The relevant documentation can be found here:</p>
+<li><a href="https://seaborn.pydata.org/generated/seaborn.FacetGrid.html">FacetGrid with seaborn</a></li>
+<li><a href="https://seaborn.pydata.org/generated/seaborn.histplot.html">histplot with seaborn</a></li>
+<li><a href="https://seaborn.pydata.org/generated/seaborn.countplot.html">countplot with seaborn</a></li>
+<li><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html">Plotting with matplotlib</a></li>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Casts the no_employees column to str values for replacement</span>
-<span class="c1"># and to more easily be used as an x-axis value later</span>
-<span class="n">survey</span><span class="p">[</span><span class="s1">&#39;no_employees&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">survey</span><span class="p">[</span><span class="s1">&#39;no_employees&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
-
-<span class="c1"># Replacing ranges of employee size with the median of each lower bound and</span>
-<span class="c1"># upper bound. There is a sacrifice of accuracy here, and it is not the sole option</span>
-<span class="c1"># option in dealing with categorial variables, but it will prepare our predictor</span>
-<span class="c1"># for our Logistic Regression later on.</span>
-
-<span class="c1"># We will store these values in a separate column, since we would</span>
-<span class="c1"># still like to inspect the no_employee ranges as given by the survey.</span>
-<span class="n">survey</span><span class="p">[</span><span class="s1">&#39;no_employees_med&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">survey</span><span class="p">[</span><span class="s1">&#39;no_employees&#39;</span><span class="p">]</span>
-
-<span class="c1"># Note: since &#39;More than 1000&#39; did not have an upper bound, I naively assigned</span>
-<span class="c1"># it to be 2000, and assigned the median as 1500.</span>
-<span class="n">survey</span><span class="p">[</span><span class="s1">&#39;no_employees_med&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1-5&#39;</span><span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">survey</span><span class="p">[</span><span class="s1">&#39;no_employees_med&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;6-25&#39;</span><span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">survey</span><span class="p">[</span><span class="s1">&#39;no_employees_med&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;26-100&#39;</span><span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="mi">63</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">survey</span><span class="p">[</span><span class="s1">&#39;no_employees_med&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;100-500&#39;</span><span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">survey</span><span class="p">[</span><span class="s1">&#39;no_employees_med&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;500-1000&#39;</span><span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="mi">750</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">survey</span><span class="p">[</span><span class="s1">&#39;no_employees_med&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;More than 1000&#39;</span><span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import statements for EDA</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 
      </div>
@@ -15875,15 +15934,6 @@ We will intuitively classify the questions as a 'positive question' or a 'negati
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="3.-Exploratory-Data-Analysis">3. Exploratory Data Analysis<a class="anchor-link" href="#3.-Exploratory-Data-Analysis">&#182;</a></h1><h2 id="Inspecting-our-data">Inspecting our data<a class="anchor-link" href="#Inspecting-our-data">&#182;</a></h2><p>Now that we've tidied up our data and organized it according to our inquiry, it will be helpful for us to understand the data we're using. The code below outputs distributions and countplots for us to make observations about our dataset. The observations we make will inform how we will approach our predictions.</p>
-<h3 id="Predictions">Predictions<a class="anchor-link" href="#Predictions">&#182;</a></h3><p>Our inquiry, which seeks to determine connections between mental health attitudes/culture in the tech workplace (workplace_score) and employee productivity (levels of work interference due to personal mental health). I would expect a high workplace_score, indicating a workplace culture where mental wellness is prioritized and talked openly about without consequence, to be associated with less work interference (i.e., under the 'Little to No Interference' class).</p>
-<p>In order to evaluate the strength of the correlation between work_interference and workplace_score, I also want to evaluate how other predictors, (Age, Gender, family_history, and no_employees), interact with work_interference, and then compare.</p>
-<p>I predict that, out of the four predictors, family_history and Gender will be the most significant.</p>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><p><b>Age</b></p>
 The distribution for age has a right skew, with most tech employees falling between the ages of their mid-20s and late 30s.</p>
 
@@ -15891,7 +15941,7 @@ The distribution for age has a right skew, with most tech employees falling betw
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[83]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plots the Age column as a histogram</span>
@@ -15914,7 +15964,7 @@ The distribution for age has a right skew, with most tech employees falling betw
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[83]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
 
 
 
@@ -15955,7 +16005,7 @@ The information below informs us that approximately 46% of respondents reported 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># displays counts of family_history responses,</span>
@@ -15976,7 +16026,7 @@ The information below informs us that approximately 46% of respondents reported 
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
 
 
 
@@ -15996,7 +16046,7 @@ Name: family_history, dtype: int64</pre>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[87]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Shows count of individuals who report having a</span>
@@ -16021,7 +16071,7 @@ Name: family_history, dtype: int64</pre>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[87]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[26]:</div>
 
 
 
@@ -16062,7 +16112,7 @@ Again, it is not surprising that a survey about the tech workplace, which is mal
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[42]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># displays counts of Gender responses,</span>
@@ -16083,7 +16133,7 @@ Again, it is not surprising that a survey about the tech workplace, which is mal
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[42]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[27]:</div>
 
 
 
@@ -16104,7 +16154,7 @@ Name: Gender, dtype: int64</pre>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[89]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Shows count of individuals by gender</span>
@@ -16128,7 +16178,7 @@ Name: Gender, dtype: int64</pre>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[89]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[28]:</div>
 
 
 
@@ -16169,10 +16219,11 @@ Using the grouping determined by the survey, most respondents work in a company 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[97]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">survey</span><span class="p">[</span><span class="s1">&#39;no_employees&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Displays count of each category of no_employees</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">survey</span><span class="p">[</span><span class="s1">&#39;no_employees&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span> 
               <span class="n">order</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1-5&#39;</span><span class="p">,</span> <span class="s1">&#39;6-25&#39;</span><span class="p">,</span> <span class="s1">&#39;26-100&#39;</span><span class="p">,</span> <span class="s1">&#39;100-500&#39;</span><span class="p">,</span> <span class="s1">&#39;500-1000&#39;</span><span class="p">,</span> <span class="s1">&#39;More than 1000&#39;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distirbution of Company Size/Employee Count&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Company Size&quot;</span><span class="p">)</span>
@@ -16191,7 +16242,7 @@ Using the grouping determined by the survey, most respondents work in a company 
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[97]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[29]:</div>
 
 
 
@@ -16233,7 +16284,7 @@ Differences in sample size aside, the distributions both display a right skew. T
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[93]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Displays a distribution by age for each category of work_interfere</span>
@@ -16255,13 +16306,13 @@ Differences in sample size aside, the distributions both display a right skew. T
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[93]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[30]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;seaborn.axisgrid.FacetGrid at 0x7f83dc60ab50&gt;</pre>
+<pre>&lt;seaborn.axisgrid.FacetGrid at 0x7f1feaae1be0&gt;</pre>
 </div>
 
 </div>
@@ -16290,13 +16341,13 @@ Differences in sample size aside, the distributions both display a right skew. T
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><p><b>Distribution of Gender by Levels of Work Interference</b></p>
-Here, we see that females (coded by 1) experience more work interference due to mental health issues than men. The sample size for individuals identifying as non-binary is not large enough to make meaningful observations. This may imply that Gender is a strong predictor value.</p>
+Here, we see that females (coded by 1) experience more work interference due to mental health issues than males (coded by 0). This may imply that Gender is a strong predictor value. The sample size for individuals identifying as non-binary is not large enough to make meaningful observations.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[94]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Displays a distribution by gender for each category of work_interfere</span>
@@ -16319,13 +16370,13 @@ Here, we see that females (coded by 1) experience more work interference due to 
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[94]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[31]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;seaborn.axisgrid.FacetGrid at 0x7f83dc490a60&gt;</pre>
+<pre>&lt;seaborn.axisgrid.FacetGrid at 0x7f1fea9f4b80&gt;</pre>
 </div>
 
 </div>
@@ -16360,7 +16411,7 @@ Just visually, I would not make any inferences about the distribution here. Ofte
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[96]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Displays a distribution by number of employees for each category of work_interfere</span>
@@ -16384,13 +16435,13 @@ Just visually, I would not make any inferences about the distribution here. Ofte
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[96]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[32]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;seaborn.axisgrid.FacetGrid at 0x7f83dc350940&gt;</pre>
+<pre>&lt;seaborn.axisgrid.FacetGrid at 0x7f1fea917670&gt;</pre>
 </div>
 
 </div>
@@ -16425,7 +16476,7 @@ My hypothesis, that a positive workplace culture regarding mental health would r
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[100]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Displays a distribution by workplace_score for each category of work_interfere</span>
@@ -16447,13 +16498,13 @@ My hypothesis, that a positive workplace culture regarding mental health would r
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[100]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;seaborn.axisgrid.FacetGrid at 0x7f83dc5e8220&gt;</pre>
+<pre>&lt;seaborn.axisgrid.FacetGrid at 0x7f1feaa2d970&gt;</pre>
 </div>
 
 </div>
@@ -16488,7 +16539,7 @@ Respondents who indicate having a family history of mental illness also demonstr
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[103]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Displays a distribution by family_history for each category of work_interfere</span>
@@ -16511,13 +16562,13 @@ Respondents who indicate having a family history of mental illness also demonstr
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[103]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[34]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;seaborn.axisgrid.FacetGrid at 0x7f83dc0d8f70&gt;</pre>
+<pre>&lt;seaborn.axisgrid.FacetGrid at 0x7f1feac3e370&gt;</pre>
 </div>
 
 </div>
@@ -16546,7 +16597,7 @@ Respondents who indicate having a family history of mental illness also demonstr
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Our exploratory data analysis has given us some information and predictions going into our Hypothesis Testing and Machine Learning step. Now, we will create a model, interpret its outputs, and discuss its performance. It would be nice to come out on the other end of this step with 100% accuracy...but that won't happen. So, in the next step, we will also eventually discuss possible problem areas in our data collection, management, and analysis.</p>
-<p><b>Remember: The Data Science Pipeline isn't always straight-forward!</b> More often than not, it will require that we repeat steps and re-evaluate methods.</p>
+<p><b>Remember: The Data Science Pipeline isn't always straight-forward!</b> More often than not, it will require that we repeat steps and fine-tune methods.</p>
 
 </div>
 </div>
@@ -16560,10 +16611,28 @@ Earlier in our code, we translated work_interfere into a variable with only two 
 <p>The code below shows how to build a predictive model in <b>Scikit-learn</b>. The documentation can be found <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">here</a>.</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[35]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import from sklearn</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[36]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Drops any NaN values</span>
@@ -16601,8 +16670,8 @@ Data columns (total 7 columns):
  2   family_history    795 non-null    int64  
  3   no_employees      795 non-null    object 
  4   work_interfere    795 non-null    object 
- 5   workplace_score   795 non-null    int64  
- 6   no_employees_med  795 non-null    float64
+ 5   no_employees_med  795 non-null    float64
+ 6   workplace_score   795 non-null    int64  
 dtypes: float64(2), int64(3), object(2)
 memory usage: 49.7+ KB
 </pre>
@@ -16616,7 +16685,7 @@ memory usage: 49.7+ KB
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[72]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[37]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># X will contain our predictor variables, all of which have been converted to</span>
@@ -16682,7 +16751,7 @@ memory usage: 49.7+ KB
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[73]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[38]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Inserts predictors and corresponding coefficients into a DataFrame</span>
@@ -16690,6 +16759,8 @@ memory usage: 49.7+ KB
 <span class="n">model_results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">preds</span><span class="p">,</span> <span class="n">lm</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
 <span class="n">model_results</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Predictors&#39;</span><span class="p">,</span> <span class="s1">&#39;Coefficients&#39;</span><span class="p">]</span>
 <span class="n">model_results</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Coefficients&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># display dataframe</span>
 <span class="n">model_results</span>
 </pre></div>
 
@@ -16706,7 +16777,7 @@ memory usage: 49.7+ KB
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[73]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[38]:</div>
 
 
 
@@ -16775,7 +16846,8 @@ memory usage: 49.7+ KB
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><b>Interpreting the coefficients</b></p>
 <li>Gender is the lowest coefficient we have, as it refers to the 'Male' classification, i.e., male respondents are <i>less likely</i> to report work interference due to their mental health.</li>
-<li>Positive numbers indicate a positive correlation. Based on this, we can say that respondents not reporting a history of mental illness in the family are less likely to experience work interference.</li><p>This doesn't quite align with the earlier predictions. As mentioned earlier, we can't depend on our model to perform with 100% accuracy. Our next step will be to evaluate how our predictive model performed.</p>
+<li>Positive numbers indicate a positive correlation. Based on this, we can say that respondents not reporting a history of mental illness in the family are less likely to experience work interference.</li>
+<li>workplace_score, which is most relevant to our inquiry, has a negative sign, indicating that it has a negative correlation with having moderate to significant work interference. However, this value's significance can be debated.</li><p>This doesn't quite align with the earlier predictions. As mentioned earlier, we can't depend on our model to perform with 100% accuracy. Our next step will be to evaluate how our predictive model performed.</p>
 
 </div>
 </div>
@@ -16787,7 +16859,7 @@ memory usage: 49.7+ KB
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[38]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[39]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Creates a Confusion Matrix to evaluate the performance of the predictive model</span>
@@ -16795,8 +16867,7 @@ memory usage: 49.7+ KB
 
 <span class="c1"># We will get a 2x2 matrix (due to our binary logistic regression)</span>
 <span class="c1"># where 26 and 97 represent actual predictions (True Positive, and True Negative)</span>
-<span class="c1"># and 54 and 22 representing incorrect predictions, Type 1 and Type 2</span>
-<span class="c1"># Errors, respectively.</span>
+<span class="c1"># and 54 and 22 representing incorrect predictions, Type 1 and Type 2 Errors, respectively.</span>
 <span class="n">cnf_matrix</span>
 </pre></div>
 
@@ -16813,7 +16884,7 @@ memory usage: 49.7+ KB
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[38]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[39]:</div>
 
 
 
@@ -16839,7 +16910,7 @@ memory usage: 49.7+ KB
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[80]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[40]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Indicates our classification names</span>
@@ -16875,7 +16946,7 @@ memory usage: 49.7+ KB
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[80]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[40]:</div>
 
 
 
@@ -16909,17 +16980,16 @@ memory usage: 49.7+ KB
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Interpreting-the-classification_report">Interpreting the classification_report<a class="anchor-link" href="#Interpreting-the-classification_report">&#182;</a></h2><p></p>
-<li>precision: Identifies how many are correctly classified among ths specified class.</li>
-<li>recall: Indicates the amount of some class that can be found among the whole dataset class amount.</li>
-<li>f1-score: the harmonic mean between precision and recall.</li>
-<li>support: count of occurences for each classification</li>
-<p></p>
+<h2 id="Interpreting-the-classification_report">Interpreting the classification_report<a class="anchor-link" href="#Interpreting-the-classification_report">&#182;</a></h2><p><p></p></p>
+<li><b>precision: </b>Identifies how many are correctly classified among ths specified class.</li>
+<li><b>recall: </b>Indicates the amount of some class that can be found among the whole dataset class amount.</li>
+<li><b>f1-score: </b>the harmonic mean between precision and recall.</li>
+<li><b>support: </b>count of occurences for each classification</li>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[74]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[41]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Outputs the key metrics for our classification</span>
@@ -16964,10 +17034,10 @@ Moderate to Significant Interference       0.64      0.82      0.72       119
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><b>What does this mean?:</b> The logistic regression created a model based on our training and test sets. <b>recall </b> shows us the product of our fitted model: with 33% of respondents having little to no work interference due to mental health, and 82% of respondents reporting some sort of work interference due to mental health. <b>precision </b> proceeds to tell us how accurate this is, compared to our testing set (actual results).</p>
-<p><b><i>Our model has an accuracy of 0.62, which...isn't great.</i></b></p>
+<p><b><i>Our model has an overall accuracy of 0.62, which...isn't great.</i></b></p>
 <p><i>So, what do we do now?</i>
-<b>Improve our model's accuracy by going back and handling our data differently:</b> this may include normalizing/standardizing values, looking for class imbalances in our dataset, or rework how we classify our predictors and targets. When doing this, it's important to optimize accuracy on your training set, not your testing set, to avoid overfitting.</p>
-<p>However, for our purposes, we won't be going back and making these changes; instead, <b>we are going to discuss the likely causes of our lack of accuracy.<b></p>
+One option is to <b>improve our model's accuracy by going back and handling our data differently:</b> this may include normalizing/standardizing values, looking for class imbalances in our dataset, or rework how we classify our predictors and targets. <i>Important: When doing this, it's important to optimize accuracy on your training set, not your testing set, to avoid overfitting.</i></p>
+<p>However, for our purposes, we won't be going back and making these changes; instead, <b>we are going to discuss the likely causes of our lack of accuracy and other methods we could use to fine-tune our model.</b></p>
 
 </div>
 </div>
@@ -16975,19 +17045,19 @@ Moderate to Significant Interference       0.64      0.82      0.72       119
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="5.-Insight-and-Discussion">5. Insight and Discussion<a class="anchor-link" href="#5.-Insight-and-Discussion">&#182;</a></h1><h2 id="Walking-back-through-the-Data-Science-Pipeline">Walking back through the Data Science Pipeline<a class="anchor-link" href="#Walking-back-through-the-Data-Science-Pipeline">&#182;</a></h2><p>Now that we've done one pass through the data science pipeline, our next step is going to be walking through it <i>again,</i> instead this time to review our methods, identify things we could have done differently, and discuss potential problem areas.</p>
 <h3 id="1.-Data-Collection">1. Data Collection<a class="anchor-link" href="#1.-Data-Collection">&#182;</a></h3><p><p></p></p>
-<li><b>Handling work_interfere:</b> Instead of manipulating the 2016 dataset to fit with the 2014 dataset, which was less informative, it may have increased accuracy to use multiple-imputation.</li>
+<li><b>Handling work_interfere:</b> Instead of manipulating the 2016 dataset to fit with the 2014 dataset, which was less informative, it may have increased accuracy to use multiple-imputation or other imputation methods.</li>
 <li><b>Choice of datasets:</b> The chosen datasets may have not been best-suited to answer the inquiry about productivity. Although work_interfere describes productivity in the sense of 'least interference due to mental health', it may have been a stretch and potentially answered better with another dataset. Additionally, 2014 and 2016 could be considered outdated, especially when it comes to mental wellness attitudes, which have significantly evolved and shifted over the past few years.</li><h3 id="2.-Data-Management-and-Representation-and-3.-Exploratory-Data-Analysis">2. Data Management and Representation and 3. Exploratory Data Analysis<a class="anchor-link" href="#2.-Data-Management-and-Representation-and-3.-Exploratory-Data-Analysis">&#182;</a></h3><p><p></p></p>
 <li><b>Handling of workplace_score:</b> Fine-tuning the way this score was calculated by differently weighting questions is something I would be interested in seeing the effects of. The way I chose to calculate it, giving positive marks and negative marks based on an employee's perception of their workplace, possibly communicated arbitrary information, especially when compared to stronger predictors, such as family_history and Gender.</li>
-<li><b>Lack of normalization/standardization of predictor variables: </b>earlier in the code, we naively translated categorical variables into numerical ones for gender and family_history. The other predictor variables, age and workplace_score are continuous variables. It is possible certain variables are dominating the model. Normalizing and differently handling how the data is represented may result in a better balanced training set.</li><h3 id="4.-Discussing-Predictive-Model-Performance-(Hypothesis-Testing,-Machine-Learning)">4. Discussing Predictive Model Performance (Hypothesis Testing, Machine Learning)<a class="anchor-link" href="#4.-Discussing-Predictive-Model-Performance-(Hypothesis-Testing,-Machine-Learning)">&#182;</a></h3><p><p></p></p>
-<li><b>Our target variable lacked balance: </b>In order to demonstrate a binary logstic regression, we manipulated our target variable, <i>work_interfere,</i> to only produce two results. 'Little to No Interference' consisted of survey responses of 'No', 'Never', and 'Rarely', and 'Moderate to Significant Interference' consisted of 'Sometimes', 'Yes', 'Often'. However, the more moderate category of 'Sometimes' had the most responses, and likely produced an imbalance in favor of the 'Moderate to Significant Interference'. <i>A less statistics-related observation...</i> I likely let this slide because I wanted to see a strong and obvious correlation between my predictor values and mental illness's impact on work_interfere.</li> 
+<li><b>Lack of normalization/standardization of predictor variables: </b>Earlier in the code, we naively translated categorical variables into numerical ones for gender and family_history. The other predictor variables, age and workplace_score are continuous variables. It is possible certain variables are dominating the model. Normalizing and differently handling how the data is represented may result in a better balanced training set.</li><h3 id="4.-Discussing-Predictive-Model-Performance-(Hypothesis-Testing,-Machine-Learning)">4. Discussing Predictive Model Performance (Hypothesis Testing, Machine Learning)<a class="anchor-link" href="#4.-Discussing-Predictive-Model-Performance-(Hypothesis-Testing,-Machine-Learning)">&#182;</a></h3><p><p></p></p>
+<li><b>Our target variable lacked balance: </b>In order to demonstrate a binary logstic regression, we manipulated our target variable, <i>work_interfere,</i> to only produce two results. 'Little to No Interference' consisted of survey responses of 'No', 'Never', and 'Rarely', and 'Moderate to Significant Interference' consisted of 'Sometimes', 'Yes', 'Often'. However, the more moderate category of 'Sometimes' had the most responses, and likely produced an imbalance in favor of the 'Moderate to Significant Interference'. <i>A less statistics-related observation...</i> I likely let this slide because I wanted to see a strong and obvious correlation between my predictor values and mental illness's impact on work_interfere. It's important to also check your personal biases!</li> 
 <li><b>General handling of missing values/NaN and sample size: </b>Outside of work_interfere, we did not do any meaningful imputation in dealing with our missing values. This resulted in a significant reduction of our dataset. Similar to a lot of the discussions above, more fine-tuning could have possibly resulted in different model behavior.</li>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Final-Thoughts">Final Thoughts<a class="anchor-link" href="#Final-Thoughts">&#182;</a></h1><p>So...what about the initial inquiry? Do workplace attitudes about mental health influence productivity?</p>
-<p>Based on the model we have: they do not. However, the problem areas we discussed have indicated numerous ways this inquiry can be re-explored, whether with a whole new dataset, different treatment of our variables, or a different ML model.</p>
-<p>As you can see, this introduction and tutorial about the data science pipeline is not a straightfoward one. Though the way we collect, manage, and analyze the data is important, there is great value in the discussion aspect of the data science pipeline: understanding our methods, figuring out how we can improve, and trying the same steps again with new perspectives.</p>
+<p><i>Based on the model we have:</i> they do not significantly reduce an individual's likelihood to have less work interference. However, the problem areas we discussed have indicated numerous ways this inquiry can be re-explored, whether with a whole new dataset, different treatment of our variables, or a different ML model.</p>
+<p>As you can see, walking through the data science pipeline is not necessarily straightfoward. Though the way we collect, manage, and analyze the data is important, there is great value in the discussion aspect of the data science pipeline: understanding our methods, figuring out how we can improve, and trying the same steps again with new perspectives.</p>
 
 </div>
 </div>
