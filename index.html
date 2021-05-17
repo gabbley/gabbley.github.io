@@ -14260,16 +14260,25 @@ a.anchor-link {
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Workplace-attitudes-towards-mental-health-and-their-impact-on-employee-productivity">Workplace attitudes towards mental health and their impact on employee productivity<a class="anchor-link" href="#Workplace-attitudes-towards-mental-health-and-their-impact-on-employee-productivity">&#182;</a></h1><p>A Tutorial and Introduction to the Data Science Pipeline by Gabrielle Baniqued</p>
-<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h1><p>Do workplace culture and attitudes about mental health affect how well employees work?</p>
-<h1 id="Data-Collection">Data Collection<a class="anchor-link" href="#Data-Collection">&#182;</a></h1><p>Sometimes, data will have to be collected (ex. web scraping), parsed through, and organized before we can actually start using it. In this case, however, the data has been collected for us. We will be using an OSMI (Open Sourcing Mental Illness, LTD) survey data from 2014 and 2016 regarding mental health in the tech workplace.</p>
-<p>The survey data can be downloaded from Kaggle:</p>
-<ul>
-<li><p>OSMI Mental Health in Tech Survey (2014) - <a href="https://www.kaggle.com/osmi/mental-health-in-tech-survey">https://www.kaggle.com/osmi/mental-health-in-tech-survey</a></p>
-</li>
-<li><p>OSMI Mental Health in Tech Survey (2016, ongoing) - <a href="https://www.kaggle.com/osmi/mental-health-in-tech-2016">https://www.kaggle.com/osmi/mental-health-in-tech-2016</a></p>
-</li>
-</ul>
-<p>Both of these surveys aimed to measure attitudes towards mental health and frequency of mental health disorders among tech workers.</p>
+<h1 id="What-is-the-Data-Science-Pipeline?">What is the Data Science Pipeline?<a class="anchor-link" href="#What-is-the-Data-Science-Pipeline?">&#182;</a></h1><p>Our walkthrough of the Data Science Pipeline will consist of the following:</p>
+<li>Data Collection</li>
+<li>Data Management and Representation</li>
+<li>Exploratory Data Analysis</li>
+<li>Analysis, Hypothesis Testing, and Machine Learning</li>
+<li>Insight and Discussion</li><p>Although this tutorial will follow this in order, something important to remember is that this 'pipeline' is not necessarily a step-by-step/one-and-done process. Often we will be required to circle back, repeat steps, rethink methods, and maybe even start from square one.</p>
+<h1 id="Introduction---Why-Track-Attitudes-towards-Mental-Illness?">Introduction - Why Track Attitudes towards Mental Illness?<a class="anchor-link" href="#Introduction---Why-Track-Attitudes-towards-Mental-Illness?">&#182;</a></h1><p>In 2012, the Center for Disease Control (CDC) released a report, <a href="https://www.cdc.gov/hrqol/Mental_Health_Reports/pdf/BRFSS_Full%20Report.pdf">Attitudes Toward Mental Illness</a>, where they highlighted the value of tracking attitudes towards mental health. Some of their conclusions include:</p>
+<li>Beliefs and attitudes about mental illness might predict if an individual discloses symptoms or seek treatment/support</li>
+<li>Individuals are less likely to disclose mental illness/seek support if there is perceived stigma around it in their community</li>
+<li>The probability of adults receiving mental health treatment increased when states provided more funding/made it more accessible</li>
+<li>Statewide, positive attitudes towards receiving treatment for mental disorders was associated with higher per capita expenditure on state mental health agencies</li><p>On a state level, the CDC found lack of accessibility to mental health resources and negative stigma around the topic was correlated to less individuals seeking mental health treatment. On the other hand, states where attitudes towards mental health were positive (i.e., believing treatment is effective and important) and resources were within access, also saw an increase in the number of individuals benefiting from treatments for mental disorders.</p>
+<p>The following project takes the reasoning from the aforementioned CDC study and applies it to a different environment.</p>
+<p>We will be exploring the following inquiry: <b><i>do workplace attitudes about mental health influence employee productivity?</i></b></p>
+<h1 id="1.-Data-Collection">1. Data Collection<a class="anchor-link" href="#1.-Data-Collection">&#182;</a></h1><p>To answer our inquiry, we will be using OSMI (Open Sourcing Mental Illness, LTD) survey data from 2014 and 2016 regarding mental health in the tech workplace.</p>
+<p>Sometimes, data will have to be collected (ex. web scraping), parsed through, and organized before we can actually start using it. In this case, however, the data has been collected for us.</p>
+<p>The survey data can be downloaded as csv files from Kaggle:</p>
+<p><li><a href="https://www.kaggle.com/osmi/mental-health-in-tech-survey">OSMI Mental Health in Tech Survey (2014)</a></li></p>
+<p><li><a href="https://www.kaggle.com/osmi/mental-health-in-tech-2016">OSMI Mental Health in Tech Survey (2016)</a></li>
+Both of these surveys aimed to measure attitudes towards mental health and frequency of mental health disorders among tech workers.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -14332,6 +14341,12 @@ a.anchor-link {
 </div>
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><b>Summary of the 2014 dataset: </b>The 2014 survey dataset (survey_2014) consists of 1259 valid responses (rows) with 27 attributes (columns). The target audience for this survey was employees in the tech workplace.</p>
+
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -14530,6 +14545,12 @@ a.anchor-link {
 </div>
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><b>Summary of the 2016 dataset: </b>The 2016 survey dataset (survey_2016) consists of 1433 valid responses (rows) with 63 attributes (columns). The target audience for this survey remained the same as the 2014 survey (employees in the tech workplace.)</p>
+
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -15368,7 +15389,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Data-Management-and-Representation">Data Management and Representation<a class="anchor-link" href="#Data-Management-and-Representation">&#182;</a></h1><p>If we wanted to use all of our survey data, it would be important for us to clean all of it. In this case, we are looking ahead and letting our later part of the project (machine learning, modeling, etc.) inform the data we should tidy.</p>
+<h1 id="2.-Data-Management-and-Representation">2. Data Management and Representation<a class="anchor-link" href="#2.-Data-Management-and-Representation">&#182;</a></h1><p>If we wanted to use all of our survey data, it would be valuable for us to clean all of it and discuss it. In this case, we are looking ahead and letting our later part of the project (machine learning, modeling, etc.) inform the data we should tidy.</p>
 <h2 id="Preparing-for-later-modeling---target-and-predictor-values">Preparing for later modeling - target and predictor values<a class="anchor-link" href="#Preparing-for-later-modeling---target-and-predictor-values">&#182;</a></h2><p>Now that our two surveys are combined into one DataFrame, we can decide on our predictors and target for our modeling later on.</p>
 <p>Out of all of the columns (in our modified DataFrame), two measures of mental wellness can be found in treatment and work_interfere. My specific inquiry: the effect of mental health on productivity, is best measured by work_interfere. <b>We will choose <i>work_interfere</i> as our target.</b></p>
 <h3 id="Thinking-ahead:-Tidying-Gender,-Age,-family_history">Thinking ahead: Tidying Gender, Age, family_history<a class="anchor-link" href="#Thinking-ahead:-Tidying-Gender,-Age,-family_history">&#182;</a></h3><p>Intuitively, I can identify some 'obvious' predictors: gender, age, family_history. These predictors have to do with the employee his/her/themself.</p>
@@ -15660,7 +15681,7 @@ One of the changes between the 2014 and 2016 surveys that presents a problem for
 <p>The code below consolidates the two columns from 2016 into the one work_interfere column based on the following conditions:</p>
 <li>If one of the two columns is a NaN value, the non-NaN value is used.</li>
 <li>If both are NaN, no action is taken, since the work_interfere column will either have a value or NaN value in the cell by default</li>
-<li>If both are not NaN values, we use random.choice() to randomly choose between the two options.</li><p>Afterwards, we drop the 2016 columns (we don't need them anymore!) All non-NaN values should be under the work_interfere column now.</p>
+<li>If both are not NaN values, we use random.choice() to randomly choose between the two options (Hot deck imputation/simple imputation).</li><p>Afterwards, we drop the 2016 columns (we don't need them anymore!) All non-NaN values should be under the work_interfere column now.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -15854,7 +15875,7 @@ We will intuitively classify the questions as a 'positive question' or a 'negati
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Exploratory-Data-Analysis">Exploratory Data Analysis<a class="anchor-link" href="#Exploratory-Data-Analysis">&#182;</a></h1><h2 id="Inspecting-our-data">Inspecting our data<a class="anchor-link" href="#Inspecting-our-data">&#182;</a></h2><p>Now that we've tidied up our data and organized it according to our inquiry, it will be helpful for us to understand the data we're using. The code below outputs distributions and countplots for us to make observations about our dataset. The observations we make will inform how we will approach our predictions.</p>
+<h1 id="3.-Exploratory-Data-Analysis">3. Exploratory Data Analysis<a class="anchor-link" href="#3.-Exploratory-Data-Analysis">&#182;</a></h1><h2 id="Inspecting-our-data">Inspecting our data<a class="anchor-link" href="#Inspecting-our-data">&#182;</a></h2><p>Now that we've tidied up our data and organized it according to our inquiry, it will be helpful for us to understand the data we're using. The code below outputs distributions and countplots for us to make observations about our dataset. The observations we make will inform how we will approach our predictions.</p>
 <h3 id="Predictions">Predictions<a class="anchor-link" href="#Predictions">&#182;</a></h3><p>Our inquiry, which seeks to determine connections between mental health attitudes/culture in the tech workplace (workplace_score) and employee productivity (levels of work interference due to personal mental health). I would expect a high workplace_score, indicating a workplace culture where mental wellness is prioritized and talked openly about without consequence, to be associated with less work interference (i.e., under the 'Little to No Interference' class).</p>
 <p>In order to evaluate the strength of the correlation between work_interference and workplace_score, I also want to evaluate how other predictors, (Age, Gender, family_history, and no_employees), interact with work_interference, and then compare.</p>
 <p>I predict that, out of the four predictors, family_history and Gender will be the most significant.</p>
@@ -16451,12 +16472,12 @@ Respondents who indicate having a family history of mental illness also demonstr
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Hypothesis-Testing-and-Machine-Learning">Hypothesis Testing and Machine Learning<a class="anchor-link" href="#Hypothesis-Testing-and-Machine-Learning">&#182;</a></h1><h2 id="Introduction-to-Logistic-Regression">Introduction to Logistic Regression<a class="anchor-link" href="#Introduction-to-Logistic-Regression">&#182;</a></h2><p>As mentioned in earlier steps, we are going to use Logistic Regression to try to predict levels of interference for employees in the tech workplace.</p>
+<h1 id="4.-Hypothesis-Testing-and-Machine-Learning">4. Hypothesis Testing and Machine Learning<a class="anchor-link" href="#4.-Hypothesis-Testing-and-Machine-Learning">&#182;</a></h1><h2 id="Introduction-to-Logistic-Regression">Introduction to Logistic Regression<a class="anchor-link" href="#Introduction-to-Logistic-Regression">&#182;</a></h2><p>As mentioned in earlier steps, we are going to use Logistic Regression to try to predict levels of interference for employees in the tech workplace.</p>
 <p><p><b>When to use Logistic Regression?</b></p>
 We should use logistic regression when we want to measure the relationship between a categorical variable (in our case, <i>work_interfere,</i> which expresses two categories of work interference due to mental health), and one or more independent variables <i>(Age, Gender, workplace_score, and family_history).</i> For our specific inquiry and the source of our data (a survey), we primarily worked with categorial variables. Logistic Regression is a classification algorithm, making it a suitable choice for our dataset.</p>
 <p><p><b>Binary Logistic Regression</b></p>
 Earlier in our code, we translated work_interfere into a variable with only two possible outcomes: <i>Little to No Interference</i> or <i>Moderate to Significant Interference</i>. There are other types of Logistic Regression that can be used to handle target variables having more than two classifications (multinomial, ordinal), but for our purposes, we will use binary logistic regression.</p>
-<p>The code below shows how to build a predictive model in <b>Scikit-learn</b>. The documentation can be found here: [LINK]</p>
+<p>The code below shows how to build a predictive model in <b>Scikit-learn</b>. The documentation can be found <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">here</a>.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -16732,6 +16753,7 @@ memory usage: 49.7+ KB
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>We can go even further and create a heatmap from our cnf_matrix, as seen below. This does not change our prediction/error counts, it simply provides a visual where, the more concentrated/darker a color becomes, it indicates a higher count for that classification. <b>Our heatmap shows a significant concentration of incorrectly predicted values <u>(specifically, Type 1 Errors, which are generally thought of as the worse of the two),</u> which should prompt us to reevaluate our model's performance.</b></p>
+<p>We will use seaborn to create our heatmap. The documentation can be found <a href="https://seaborn.pydata.org/generated/seaborn.heatmap.html">here</a>.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -16871,15 +16893,30 @@ Moderate to Significant Interference       0.64      0.82      0.72       119
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Discussing-predictive-model-performance---identifying-problem-areas">Discussing predictive model performance - identifying problem areas<a class="anchor-link" href="#Discussing-predictive-model-performance---identifying-problem-areas">&#182;</a></h2><p></p>
-<li><b>Lack of normalization/standardization of predictor variables:</b> earlier in the code, we naively translated categorical variables into numerical ones for gender and family_history. The other predictor variables, age and workplace_score are continuous variables. It is possible certain variables are dominating the model. Normalizing and differently handling how the data is represented may result in a better balanced training set.</li>
+<h1 id="5.-Insight-and-Discussion">5. Insight and Discussion<a class="anchor-link" href="#5.-Insight-and-Discussion">&#182;</a></h1><h2 id="Walking-back-through-the-Data-Science-Pipeline">Walking back through the Data Science Pipeline<a class="anchor-link" href="#Walking-back-through-the-Data-Science-Pipeline">&#182;</a></h2><p>Now that we've done one pass through the data science pipeline, our next step is going to be walking through it <i>again,</i> instead this time to review our methods, identify things we could have done differently, and discuss potential problem areas.</p>
+<h3 id="1.-Data-Collection">1. Data Collection<a class="anchor-link" href="#1.-Data-Collection">&#182;</a></h3><p></p>
+<li><b>Handling work_interfere:</b> Instead of manipulating the 2016 dataset to fit with the 2014 dataset, which was less informative, it may have increased accuracy to use multiple-imputation.</li>
+<li><b>Choice of datasets:</b> The chosen datasets may have not been best-suited to answer the inquiry about productivity. Although work_interfere describes productivity in the sense of 'least interference due to mental health', it may have been a stretch and potentially answered better with another dataset. Additionally, 2014 and 2016 could be considered outdated, especially when it comes to mental wellness attitudes, which have significantly evolved and shifted over the past few years.</li>
 
-<li><b>Our target variable lacked balance:</b> In order to demonstrate a binary logstic regression, we manipulated our target variable, <i>work_interfere,</i> to only produce two results. 'Little to No Interference' consisted of survey responses of 'No', 'Never', and 'Rarely', and 'Moderate to Significant Interference' consisted of 'Sometimes', 'Yes', 'Often'. However, the more moderate category of 'Sometimes' had the most responses, and likely produced an imbalance in favor of the 'Moderate to Significant Interference'. <i>A less statistics-related observation...</i> I likely let this slide because I wanted to see a strong and obvious correlation between my predictor values and mental illness's impact on work_interfere.</li> 
-
-<li><b>Handling of workplace_score:</b> Fine-tuning the way this score was calculated by differently weighting questions is something I would be interested in seeing the effects of. The way I chose to calculate it, giving positive marks and negative marks based on an employee's perception of their workplace, possibly communicated arbitrary information, especially when compared to stronger predictors, such as family_history and Gender.</li> 
-
-<li><b>Handling of missing values/NaN and sample size:</b> We did not do any imputation in dealing with our missing values. This resulted in a significant reduction of our dataset. Similar to a lot of the discussions above, more fine-tuning could have possibly resulted in different model behavior.</li> 
+### 2. Data Management and Representation and 3. Exploratory Data Analysis
 <p></p>
+<li><b>Handling of workplace_score:</b> Fine-tuning the way this score was calculated by differently weighting questions is something I would be interested in seeing the effects of. The way I chose to calculate it, giving positive marks and negative marks based on an employee's perception of their workplace, possibly communicated arbitrary information, especially when compared to stronger predictors, such as family_history and Gender.</li>
+<li><b>Lack of normalization/standardization of predictor variables: </b>earlier in the code, we naively translated categorical variables into numerical ones for gender and family_history. The other predictor variables, age and workplace_score are continuous variables. It is possible certain variables are dominating the model. Normalizing and differently handling how the data is represented may result in a better balanced training set.</li>
+
+
+### 4. Discussing Predictive Model Performance (Hypothesis Testing, Machine Learning)
+<p></p>
+<li><b>Our target variable lacked balance: </b>In order to demonstrate a binary logstic regression, we manipulated our target variable, <i>work_interfere,</i> to only produce two results. 'Little to No Interference' consisted of survey responses of 'No', 'Never', and 'Rarely', and 'Moderate to Significant Interference' consisted of 'Sometimes', 'Yes', 'Often'. However, the more moderate category of 'Sometimes' had the most responses, and likely produced an imbalance in favor of the 'Moderate to Significant Interference'. <i>A less statistics-related observation...</i> I likely let this slide because I wanted to see a strong and obvious correlation between my predictor values and mental illness's impact on work_interfere.</li> 
+<li><b>General handling of missing values/NaN and sample size: </b>Outside of work_interfere, we did not do any meaningful imputation in dealing with our missing values. This resulted in a significant reduction of our dataset. Similar to a lot of the discussions above, more fine-tuning could have possibly resulted in different model behavior.</li> 
+<p></p>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Final-Thoughts">Final Thoughts<a class="anchor-link" href="#Final-Thoughts">&#182;</a></h1><p>So...what about the initial inquiry? Do workplace attitudes about mental health influence productivity?</p>
+<p>Based on the model we have: they do not. However, the problem areas we discussed have indicated numerous ways this inquiry can be re-explored, whether with a whole new dataset, different treatment of our variables, or a different ML model.</p>
+<p>As you can see, this introduction and tutorial about the data science pipeline is not a straightfoward one. Though the way we collect, manage, and analyze the data is important, there is great value in the discussion aspect of the data science pipeline: understanding our methods, figuring out how we can improve, and trying the same steps again with new perspectives.</p>
+
 </div>
 </div>
 </body>
