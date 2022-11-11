@@ -1,0 +1,36 @@
+.toggle-switch {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: .875rem;
+    cursor: pointer;
+  }
+  
+  .toggle-switch-border {
+    display: inline-flex;
+    align-items: center;
+    width: 60px;
+    height: 36px;
+    border: 1px solid var(--primary); 
+    border-radius: 20px;
+    box-sizing: border-box;
+    margin-inline-start: 8px;
+  }
+  
+  .toggle-switch input {
+    display: none;
+  }
+  
+  .toggle-switch-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--primary);
+    transform: translate3d(3px, 0, 0);
+    transition: transform .1s ease-in-out;
+  }
+  
+  .toggle-switch input:checked + * .toggle-switch-dot {
+    transform: translate3d(26px, 0, 0);
+  }
