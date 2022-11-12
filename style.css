@@ -22,6 +22,10 @@ body {
     --primary: var(--light-primary);
     --link: var(--light-link);
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
   
   a {
     color: var(--link);
