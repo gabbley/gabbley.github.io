@@ -163,6 +163,11 @@ body {
     min-width: 512px;
     margin-inline-start: 4rem;
   }
+
+  .column {
+  flex: 50%;
+  padding: 0 4px;
+  }
   
   @media (max-width: 1024px) {
     article {
