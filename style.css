@@ -151,8 +151,9 @@ body {
   
   article a {
     font-weight: 700;
-    padding: 2rem 0;
-  }
+    padding: 0; 
+    margin: 0;  
+}
   
   article li {
     margin-block-end: 0.5rem;
