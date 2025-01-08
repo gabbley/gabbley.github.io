@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>musicmin.app portfolio showcase</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            width: 95%;
+            padding: 20px;
+        }
+        .image-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .image-gallery img {
+            width: 100%;
+            height: auto;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+        .video-container {
+            width: 100%;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #000;
+        }
+        video {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="container">
+        <header>
+            <nav>
+              <h1>Gabrielle Baniqued</h1>
+              <ul>
+                <li><a href="https://gabbley.github.io/">Projects</a></li>
+                 <!-- <li><a href="#recs">Recommendations</a></li> -->
+                <li><a target="_blank" href="current-resume.pdf">Resume</a></li>
+                <li><a href="mailto:ollergabrielle@gmail.com">Contact</a></li>
+              </ul>
+            </nav>
+            <div class="controls">
+              <label class="toggle-switch">
+                Dark Mode
+                <input type="checkbox" id="dark-mode-toggle">
+                <div class="toggle-switch-border">
+                  <div class="toggle-switch-dot"></div>
+                </div>
+              </label>
+            </div>
+          </header>
+        <!-- Image Gallery -->
+        <div class="image-gallery">
+            <img src="media/1.jpg" alt="Slide 1">
+            <img src="media/2.jpg" alt="Slide 2">
+            <img src="media/3.jpg" alt="Slide 3">
+            <img src="media/4.jpg" alt="Slide 4">
+            <img src="media/5.jpg" alt="Slide 5">
+            <video controls>
+                <source src="media/mmportfolio.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <img src="media/7.jpg" alt="Slide 6">
+            <img src="media/8.jpg" alt="Slide 7">
+            <img src="media/9.jpg" alt="Slide 8">
+            <img src="media/10.jpg" alt="Slide 9">
+        </div>
+    </div>
+
+</body>
+</html>
